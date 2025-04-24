@@ -1,0 +1,31 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="unisphere-projects-container">
+    <div class="projects-header">
+        <h1 class="section-title">🚀 Projects</h1>
+        <a href="{% url 'add-project' %}" class="btn btn-success">+ Add New Project</a>
+    </div>
+    <hr>
+
+    {% if projects %}
+    <ul class="project-list">
+        {% for project in projects %}
+        <li class="project-card">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+
+            {% if project.link %}
+            <p><a href="{{ project.link }}" target="_blank" class="project-link">🌐 View Project</a></p>
+            {% endif %}
+
+            <p class="project-meta">👤 Created by: {{ project.user.username }} on {{ project.created|date:"F j, Y" }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="muted">No projects posted yet. Be the first to share your work!</p>
+    {% endif %}
+</div>
+{% endblock %}

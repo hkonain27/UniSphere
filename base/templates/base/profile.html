@@ -1,0 +1,24 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<div class="profile-page-wrapper">
+    <h2 class="profile-username">👤 {{ user.username }}</h2>
+
+    <div class="profile-container">
+        <!-- Left Column -->
+        <div class="profile-column">
+            {% include 'base/major_job.html' %}
+        </div>
+
+        <!-- Center Column (Feed) -->
+        <div class="profile-column profile-main-feed">
+            {% include 'base/feed.html' %}
+        </div>
+
+        <!-- Right Column (Activity) -->
+        <div class="profile-column">
+            {% include 'base/activity_component.html' %}
+        </div>
+    </div>
+</div>
+{% endblock %}

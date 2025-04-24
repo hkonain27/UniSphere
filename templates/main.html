@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>UniSphere main page</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="{% static 'styles/main.css' %}" />  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>UniSphere | Connect Globally</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
 </head>
 <body>
-    {% include 'navbar.html' %}
+    <!-- Navbar -->
+    {% include 'base/navbar.html' %}
+
+    <!-- Flash Messages -->
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
-        <li>{{message}}</li>
+        <li class="message {{ message.tags }}">{{ message }}</li>
         {% endfor %}
     </ul>
     {% endif %}
-    {% block content %}
-    {% endblock %}    
+
+    <!-- Page Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 </body>
 </html>

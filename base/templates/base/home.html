@@ -1,0 +1,59 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block content %}
+<h3 class="page-heading">🎓 Welcome to UniSphere</h3>
+
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 2rem;
+        padding: 1.5rem 0;
+    }
+
+    .sidebar {
+        background-color: #f9f9f9;
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .main-content {
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: #fff;
+        border: 1px solid #e0e0e0;
+    }
+
+    .main-content h5 {
+        margin-top: 0;
+    }
+
+    .main-content a {
+        color: #007BFF;
+        text-decoration: underline;
+    }
+
+    .main-content a:hover {
+        color: #0056b3;
+    }
+</style>
+
+<div class="home-container">
+    <div class="sidebar">
+        {% include 'base/major_job.html' %}
+    </div>
+
+    <div class="main-content">
+        <h5>🌐 Current Groups: {{ room_count }}</h5>
+        <hr>
+        <p>
+            Can’t find a group that sparks your interest?
+            <a href="{% url 'create-room' %}">Create your own group</a> and connect with others!
+        </p>
+        <hr>
+        {% include 'base/feed.html' %}
+    </div>
+</div>
+{% endblock %}

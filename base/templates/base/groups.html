@@ -1,0 +1,35 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block content %}
+<section class="groups-section">
+    <h1 class="section-title">🌍 Discover Groups</h1>
+    <p class="section-subtitle">Browse study, culture, or hobby groups created by fellow students</p>
+
+    <div class="groups-container">
+        {% for room in rooms %}
+        <div class="group-card">
+            <h3 class="group-title">
+                Group Topic: <a href="{% url 'room' room.id %}">{{ room.name }}</a>
+            </h3>
+            <p class="group-meta">
+                <strong>Topic:</strong> {{ room.topic.name }}<br>
+                <strong>Description:</strong> {{ room.description }}
+            </p>
+            <p class="group-host">
+                <a href="{% url 'user-profile' room.host.id %}">👤 Creator: {{ room.host.username }}</a>
+            </p>
+
+            {% if request.user == room.host %}
+            <div class="group-actions">
+                <a href="{% url 'update-room' room.id %}" class="btn-edit">Edit</a>
+                <a href="{% url 'delete-room' room.id %}" class="btn-delete">Delete</a>
+            </div>
+            {% endif %}
+        </div>
+        {% empty %}
+        <p>No groups available at the moment. Try creating one!</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

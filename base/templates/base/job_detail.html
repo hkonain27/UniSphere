@@ -1,0 +1,16 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="job-detail-container">
+    <h1 class="page-title">💼 Job Description</h1>
+
+    <div class="job-card">
+        <h2 class="job-title">Position: {{ job.jobtitle|safe }}</h2>
+
+        <div class="job-description">
+            {{ job.compdesc|safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}

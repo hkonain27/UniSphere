@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="content-border">
+    <h1>Explore Job Opportunities</h1>
+
+    <form method="POST" action="{% url 'job-details' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">Job Title:</label>
+            <input type="text" id="title" name="title" value="{{ form.title.value | default:'' }}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" value="{{ form.location.value | default:'' }}" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-success">Search</button>
+    </form>
+
+    <div class="job-list mt-4">
+        <h2>Results</h2>
+        {% if jobs %}
+            {% for job in jobs %}
+                <div class="job-item mb-3 p-3">
+                    <h4>
+                        <a href="{% url 'job_description' job.pk %}">{{ job.jobtitle }}</a>
+                    </h4>
+                    <p><strong>Company:</strong> {{ job.compname }}</p>
+                    <p><strong>Location:</strong> {{ job.location }}</p>
+                    <p><strong>Description:</strong> {{ job.compdesc }}</p>
+                    <p><strong>Company HQ:</strong> {{ job.complocation }}</p>
+                    <a href="{% url 'job_description' job.pk %}" class="btn btn-outline-primary btn-sm mt-2">View Details</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-muted">No jobs match your search criteria.</p>
+        {% endif %}
+    </div>
+
+    <hr>
+
+    <div class="networking-section mt-5">
+        <h2>💬 Networking Opportunities</h2>
+        <p>Boost your career by connecting with peers and organizations on campus.</p>
+        <ul>
+            <li><a href="{% url 'home' %}">Find student groups that match your major</a></li>
+            <li><a href="{% url 'events' %}">Join campus events and tech meetups</a></li>
+            <li><a href="{% url 'project-list' %}">Collaborate on real-world projects</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

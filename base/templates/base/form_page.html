@@ -1,0 +1,13 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<div class="form-wrapper">
+    <h2 class="form-title">📝 Submit Form</h2>
+
+    <form method="POST" action="" class="unisphere-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success mt-2">Submit</button>
+    </form>
+</div>
+{% endblock %}

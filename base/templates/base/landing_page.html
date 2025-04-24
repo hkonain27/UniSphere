@@ -1,0 +1,15 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<div class="landing-content">
+    <h1 class="landing-title">UniSphere</h1>
+    <p class="landing-subtitle">Connecting International Students to Resources, Communities, and Opportunities.</p>
+    
+    <div class="landing-actions">
+        <a href="{% url 'register' %}" class="btn btn-success btn-lg mr-2">Join Now</a>
+        <a href="{% url 'about_us' %}" class="btn btn-outline-dark btn-lg">Learn More</a>
+        <a href="{% url 'job-details' %}">Job Portal</a>
+
+    </div>
+</div>
+{% endblock %}

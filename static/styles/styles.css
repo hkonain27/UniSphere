@@ -1,0 +1,194 @@
+/* ========== LANDING PAGE BODY ========== */
+.landing-body {
+    width: 100%;
+    height: 100vh;
+    background-color: #fef7de;
+    background-position: center;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+/* ========== NAVBAR ========== */
+.unisphere-navbar {
+    background-color: #089206;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.unisphere-navbar .navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+    position: relative;
+}
+
+.unisphere-navbar .navbar-brand::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: #fef7de;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.unisphere-navbar .navbar-brand:hover::before {
+    transform: translateX(0);
+}
+
+.unisphere-navbar .nav-link {
+    color: white !important;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.unisphere-navbar .nav-link:hover {
+    background-color: #000;
+    color: #fef7de !important;
+}
+
+/* Join Now Button */
+.unisphere-navbar .btn-join-now {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.unisphere-navbar .btn-join-now:hover {
+    background-color: #fef7de;
+    color: #089206;
+}
+
+/* Login Button */
+.unisphere-navbar .btn-login {
+    background-color: #000;
+    color: white;
+    border-radius: 30px;
+    padding: 8px 20px;
+    border: 2px solid #000;
+    transition: 0.3s ease;
+}
+
+.unisphere-navbar .btn-login:hover {
+    background-color: #fef7de;
+    color: black;
+}
+
+/* ========== LANDING TEXT AREA ========== */
+.landing-content {
+    max-width: 1000px;
+    margin: auto;
+    color: #000;
+    padding-top: 10%;
+    text-align: left;
+}
+
+.landing-content h1 {
+    font-size: 4rem;
+    font-family: 'Times New Roman', serif;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.landing-content .par {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background-color: #089206;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.95rem;
+}
+
+/* ========== CONTACT US SECTION ========== */
+.contact_us {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.contact_us h1 {
+    font-size: 2.5rem;
+    color: #089206;
+}
+
+.contact_us p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* Contact Info Cards */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-info > div {
+    width: 260px;
+    height: 180px;
+    background: #fef7de;
+    border: 1px solid #089206;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.contact-info h3 {
+    font-size: 1.2rem;
+    color: #089206;
+    margin-bottom: 10px;
+}
+
+.contact-info p, .contact-info a {
+    font-size: 1rem;
+    color: #333;
+    word-break: break-word;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+    color: #000;
+}
+
+/* ========== ABOUT US SECTION ========== */
+.about_us {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.about_us h1 {
+    font-size: 2.5rem;
+    color: #089206;
+    margin-bottom: 20px;
+}
+
+.about_us p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 900px;
+    margin: auto;
+    line-height: 1.6;
+}

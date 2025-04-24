@@ -1,0 +1,16 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+{% block content %}
+
+<section class="form-section">
+    <h1>Create a New Event</h1>
+    <p>Promote a cultural gathering, networking session, or academic event for your UniSphere community.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Create Event</button>
+    </form>
+</section>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<div class="room-container">
+    <!-- Left: Room Info & Messages -->
+    <div class="room-main">
+        <h2 class="room-title">{{ room.name }}</h2>
+        <p class="room-description">{{ room.description }}</p>
+
+        <!-- Join/Leave Room Button -->
+        {% if request.user.is_authenticated %}
+        <form method="POST" action="{% url 'toggle-room-membership' room.id %}" class="mb-3">
+            {% csrf_token %}
+            {% if request.user in participants %}
+                <button type="submit" class="btn btn-outline-danger">Leave Room</button>
+            {% else %}
+                <button type="submit" class="btn btn-success">Join Room</button>
+            {% endif %}
+        </form>
+        {% endif %}
+
+        <!-- Messages -->
+        <div class="conversation-wrapper">
+            <h4 class="section-heading">💬 Conversation</h4>
+            <hr>
+
+            {% for message in room_messages %}
+            <div class="message-card">
+                <div class="message-header">
+                    <small>@{{ message.user }} • {{ message.created|timesince }} ago</small>
+                    {% if request.user == message.user %}
+                        <a href="{% url 'delete-message' message.id %}" class="delete-link">Delete</a>
+                    {% endif %}
+                </div>
+                <p class="message-body">{{ message.body }}</p>
+                <hr>
+            </div>
+            {% empty %}
+            <p class="no-messages">No messages yet. Start the conversation!</p>
+            {% endfor %}
+        </div>
+
+        <!-- Comment Form -->
+        {% if request.user.is_authenticated and request.user in participants %}
+        <form method="POST" action="" class="comment-form">
+            {% csrf_token %}
+            <input type="text" name="body" placeholder="Type your message..." class="form-control mb-2" />
+            <button type="submit" class="btn btn-success">Send</button>
+        </form>
+        {% endif %}
+    </div>
+
+    <!-- Right: Participants -->
+    <div class="room-participants">
+        <h4 class="section-heading">👥 Participants</h4>
+        <hr>
+        {% for user in participants %}
+        <p class="participant">@{{ user.username }}</p>
+        {% empty %}
+        <p class="participant muted">No participants yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

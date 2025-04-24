@@ -1,0 +1,194 @@
+/*===============================
+    GLOBAL STYLES
+===============================*/
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fef7de9d;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+/*===============================
+    NAVIGATION
+===============================*/
+
+.navbar {
+    background-color: #089206;
+    padding: 20px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+.navbar a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #000;
+    color: #fef7de;
+}
+
+.navbar-logo a {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #fff;
+    position: relative;
+}
+
+.navbar-logo a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fef7de9d;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.navbar-logo a:hover::before {
+    transform: translateX(0);
+}
+
+/*===============================
+    CONTAINERS & LAYOUT
+===============================*/
+
+.container,
+.auth-container,
+.job-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 30px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .profile-container {
+        grid-template-columns: 1fr;
+    }
+
+    .job-item {
+        min-width: unset;
+        width: 100%;
+    }
+}
+
+/*===============================
+    HEADINGS & TEXT
+===============================*/
+
+h1, h2, h3, h5 {
+    color: #089206;
+}
+
+p, label {
+    color: #333;
+}
+
+/*===============================
+    BUTTONS
+===============================*/
+
+button,
+.btn {
+    background-color: #089206;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover,
+.btn:hover {
+    background-color: #014400;
+}
+
+/*===============================
+    FORMS & INPUTS
+===============================*/
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.auth-container {
+    max-width: 450px;
+    margin: 50px auto;
+    background-color: #fef7de;
+}
+
+/*===============================
+    MESSAGES
+===============================*/
+
+.messages {
+    background-color: #089206;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    width: 60%;
+    text-align: center;
+    margin: 20px auto;
+}
+
+/*===============================
+    JOB + GROUP LISTS
+===============================*/
+
+.job-list,
+.group-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.job-item,
+.group-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    min-width: 900px;
+    max-width: 2000px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/*===============================
+    FOOTER
+===============================*/
+
+footer {
+    background-color: #089206;
+    color: #fff;
+    text-align: center;
+    padding: 12px 0;
+    margin-top: 40px;
+}

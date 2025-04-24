@@ -1,0 +1,27 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<section class="events-page">
+    <h1>Events</h1>
+    <a href="{% url 'create-event' %}" class="add-event-btn">+ Add Event</a>
+    <hr>
+
+    {% if events %}
+        <ul class="event-list">
+            {% for event in events %}
+            <li class="event-item">
+                <h3>{{ event.title }}</h3>
+                <p>{{ event.description }}</p>
+                <p><strong>Location:</strong> {{ event.location }}</p>
+                <p><strong>Date:</strong> {{ event.date }}</p>
+                <p><strong>Time:</strong> {{ event.time }}</p>
+                <p><strong>Major:</strong> {{ event.major }}</p>
+            </li>
+            <hr>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No events found.</p>
+    {% endif %}
+</section>
+{% endblock %}

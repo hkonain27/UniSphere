@@ -1,0 +1,21 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-form">
+        <h2>🔐 Login</h2>
+        <p>Access your UniSphere account to explore groups, events, and more.</p>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Login</button>
+        </form>
+
+        <div class="auth-message">
+            <p>Don't have an account? <a href="{% url 'register' %}">Join Now</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<div class="events-section">
+    <h1>Upcoming Events</h1>
+    <p class="events-description">
+        Stay connected and explore new opportunities at UniSphere! Here you'll find upcoming events curated for international students.
+    </p>
+
+    <!-- Example event cards can go here -->
+    <!-- You can loop through events using:
+         {% for event in events %}
+             <div class="event-card">
+                 <h3>{{ event.title }}</h3>
+                 <p>{{ event.description|truncatewords:25 }}</p>
+                 <p><strong>Date:</strong> {{ event.date }} | <strong>Time:</strong> {{ event.time }}</p>
+                 <a href="{% url 'event-detail' event.id %}">View Details</a>
+             </div>
+         {% endfor %}
+     -->
+</div>
+{% endblock %}

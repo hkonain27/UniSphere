@@ -1,0 +1,13 @@
+<div class="major-groups-box">
+    <h4 class="section-heading">🎓 Groups Related to Your Major</h4>
+    <hr>
+    <div class="topic-list">
+        {% for topic in topics %}
+        <div class="topic-item">
+            <a href="{% url 'home' %}?q={{ topic.name }}" class="topic-link">{{ topic.name }}</a>
+        </div>
+        {% empty %}
+        <p class="muted">No related groups found.</p>
+        {% endfor %}
+    </div>
+</div>

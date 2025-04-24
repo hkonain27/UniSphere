@@ -1,0 +1,16 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+{% block content %}
+
+<section class="form-section">
+    <h1>Add a New Project</h1>
+    <p>Share your academic, personal, or collaborative projects with the UniSphere community.</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Submit Project</button>
+    </form>
+</section>
+
+{% endblock %}
