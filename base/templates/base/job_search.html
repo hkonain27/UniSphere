@@ -3,7 +3,7 @@
 <div class="content-border">
     <h1>Explore Job Opportunities</h1>
 
-    <form method="POST" action="{% url 'job-details' %}">
+    <form method="POST" action="{% url 'job_search' %}">
         {% csrf_token %}
         <div class="form-group">
             <label for="title">Job Title:</label>
@@ -24,13 +24,13 @@
             {% for job in jobs %}
                 <div class="job-item mb-3 p-3">
                     <h4>
-                        <a href="{% url 'job_description' job.pk %}">{{ job.jobtitle }}</a>
+                        <a href="{% url 'job_details' job.pk %}">{{ job.jobtitle }}</a>
                     </h4>
                     <p><strong>Company:</strong> {{ job.compname }}</p>
                     <p><strong>Location:</strong> {{ job.location }}</p>
                     <p><strong>Description:</strong> {{ job.compdesc }}</p>
                     <p><strong>Company HQ:</strong> {{ job.complocation }}</p>
-                    <a href="{% url 'job_description' job.pk %}" class="btn btn-outline-primary btn-sm mt-2">View Details</a>
+                    <a href="{% url 'job_details' job.pk %}" class="btn btn-outline-primary btn-sm mt-2">View Details</a>
                 </div>
             {% endfor %}
         {% else %}
@@ -46,7 +46,7 @@
         <ul>
             <li><a href="{% url 'home' %}">Find student groups that match your major</a></li>
             <li><a href="{% url 'events' %}">Join campus events and tech meetups</a></li>
-            <li><a href="{% url 'project-list' %}">Collaborate on real-world projects</a></li>
+            <li><a href="{% url 'project_list' %}">Collaborate on real-world projects</a></li>
         </ul>
     </div>
 </div>

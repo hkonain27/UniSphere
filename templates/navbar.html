@@ -6,8 +6,9 @@
 
     <ul class="navbar-links">
         <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-        <li><a href="{% url 'job-details' %}">Jobs</a></li>
-        <li><a href="{% url 'group_discovery' %}">Groups</a></li>
+        <li><a href="{% url 'job_details' %}">Jobs</a></li>
+        <li><a href="{% url 'job_details' job.id %}">Jobs</a></li>
+        <li><a href="{% url 'home' %}">Groups</a></li>
         <li><a href="{% url 'events_list' %}">Events</a></li>
         <li><a href="{% url 'housing_search' %}">Housing</a></li>
         <li><a href="{% url 'about_us' %}">About</a></li>

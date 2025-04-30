@@ -78,11 +78,17 @@ from django.shortcuts import render
 #from django.shortcuts import render
 from .models import Job 
 
-
 def job_search(request):
     jobs = Job.objects.all()
+    if request.method == 'POST':
+        title = request.POST.get('title', '')
+        location = request.POST.get('location', '')
+        jobs = jobs.filter(jobtitle__icontains=title, location__icontains=location)
     return render(request, 'base/job_search.html', {'jobs': jobs})
 
+def job_details(request, job_id):
+    job = get_object_or_404(Job, id=job_id)
+    return render(request, 'base/job_details.html', {'job': job})
 
 def contact_us(request):
     return render(request, 'base/contact_us.html')  # Make sure this HTML file exists
@@ -98,9 +104,12 @@ def group_discovery(request):
         groups = groups.filter(country__icontains=query)
     return render(request, 'base/groups.html', {'groups': groups})
 
-def job_api(request):
-    jobs = Job.objects.all().values('jobtitle', 'compname', 'location', 'compdesc', 'complocation')
-    return JsonResponse(list(jobs), safe=False)
+def group_list(request):
+    return render(request, 'base/groups.html')  # make sure this template exists
+
+# def job_api(request):
+#     jobs = Job.objects.all().values('jobtitle', 'compname', 'location', 'compdesc', 'complocation')
+#     return JsonResponse(list(jobs), safe=False)
 
 @login_required
 def join_group(request, group_id):
@@ -131,3 +140,22 @@ def group_chat(request, group_id):
             message.save()
             return redirect('group-chat', group_id=group.id)
     return render(request, 'base/chat.html', {'group': group, 'messages': messages_list, 'form': form})
+
+from django.shortcuts import render
+
+def landing_page(request):
+    return render(request, 'base/landing_page.html')
+
+def home(request):
+    # You'll likely have more logic here, including passing `room_count`
+    return render(request, 'base/home.html', {'room_count': 5})  # example room count
+
+def create_room(request):
+    return render(request, 'base/create_room.html')
+
+def events_page(request):
+    return render(request, 'base/events.html')  # make sure you create this template
+def project_list(request):
+    return render(request, 'base/projects.html')  # Make sure this file exists
+def user_profile(request, pk):
+    return render(request, 'base/user_profile.html', {'pk': pk})
